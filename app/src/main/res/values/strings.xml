@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="label_email_address">Email address</string>
+    <string name="label_forgot_password_head">Forgot password</string>
+    <string name="label_forgot_password_sub_head">We need to verify your identity to reset your password. Enter the email address and date of birth on tihs account.</string>
+    <string name="label_dob">Date of birth</string>
+    <string name="label_dob_format">MM/DD/YYYY</string>
+    <string name="label_continue">Continue</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_email_error">Enter a valid email address</string>
+    <string name="label_dob_error">Enter a vaild date of birth</string>
+</resources>
