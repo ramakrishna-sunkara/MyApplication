@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Group;
 
 import com.example.components.AppDatePicker;
 import com.google.android.material.button.MaterialButton;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     int selectedYear = -1;
     int selectedMonth = -1;
     int selectedDay = -1;
+    private boolean isUnlockAccount = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,5 +107,12 @@ public class MainActivity extends AppCompatActivity {
         inputLayoutDob = findViewById(R.id.il_dob);
         btnContinue = findViewById(R.id.btn_continue);
         btnCancel = findViewById(R.id.btn_cancel);
+
+        Group groupUnlockAccount = findViewById(R.id.groupUnlockAccount);
+        if (isUnlockAccount){
+            groupUnlockAccount.setVisibility(View.VISIBLE);
+        } else {
+            groupUnlockAccount.setVisibility(View.GONE);
+        }
     }
 }

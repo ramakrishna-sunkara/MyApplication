@@ -9,4 +9,7 @@
     <string name="label_cancel">Cancel</string>
     <string name="label_email_error">Enter a valid email address</string>
     <string name="label_dob_error">Enter a vaild date of birth</string>
+    <string name="label_email_note">Account holder only</string>
+    <string name="label_patient_first_name">Patient first name</string>
+    <string name="label_patient_last_name">Patient last name</string>
 </resources>
