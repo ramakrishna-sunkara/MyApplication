@@ -10,11 +10,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 
-import com.example.components.AppDatePicker;
+import com.example.components.DialogUtils;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.Calendar;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -73,7 +72,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         btnCancel.setOnClickListener(v -> {
-            AppDatePicker appDatePicker = new AppDatePicker();
+            /*DialogUtils.showDialog(MainActivity.this, "Hello....");
+            DialogUtils.showDialog(MainActivity.this, "Hello....","With title");
+            DialogUtils.showDialog(MainActivity.this, "Hello....","title","Yes","No",(dialog, which) -> {
+                Toast.makeText(getApplicationContext(), "Clicked yes...", Toast.LENGTH_SHORT).show();
+            }, (dialog, which) -> {
+                Toast.makeText(getApplicationContext(), "Clicked no", Toast.LENGTH_SHORT).show();
+            });*/
+
+            /*AppDatePicker appDatePicker = new AppDatePicker();
             appDatePicker.setMaxDate(Calendar.getInstance());
             appDatePicker.setAppDatePickerListener((year, month, day) -> {
                 Toast.makeText(getApplicationContext(), "date: " + (month+1) + "/" + day + "/" + year, Toast.LENGTH_LONG).show();
@@ -88,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putInt(AppDatePicker.SELECTED_DAY, selectedDay);
                 appDatePicker.setArguments(bundle);
             }
-            appDatePicker.show(getSupportFragmentManager(), "AppDatePicker");
+            appDatePicker.show(getSupportFragmentManager(), "AppDatePicker");*/
         });
     }
 
