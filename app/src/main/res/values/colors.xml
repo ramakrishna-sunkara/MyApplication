@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#B5180D</color>
     <color name="black_90">#E6000000</color>
+    <color name="black_d9">#140A0A</color>
+    <color name="grey_100">#1E1E1E</color>
+    <color name="deals_and_rewards_red">#C71508</color>
+    <color name="divider">#cccccc</color>
 </resources>
