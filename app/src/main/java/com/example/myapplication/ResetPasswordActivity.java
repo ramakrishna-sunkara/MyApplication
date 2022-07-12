@@ -3,11 +3,11 @@ package com.example.myapplication;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.components.DialogUtils;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -25,16 +25,21 @@ public class ResetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
         initViews();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         registerListeners();
     }
 
     private void registerListeners() {
-        ilNewPassword.getEditText().setOnFocusChangeListener((view, hasFocus) -> {
+        Objects.requireNonNull(ilNewPassword.getEditText()).setOnFocusChangeListener((view, hasFocus) -> {
             if (hasFocus) {
                 hideError(ilNewPassword);
             }
         });
-        ilConfirmPassword.getEditText().setOnFocusChangeListener((view, hasFocus) -> {
+        Objects.requireNonNull(ilConfirmPassword.getEditText()).setOnFocusChangeListener((view, hasFocus) -> {
             if (hasFocus) {
                 hideError(ilConfirmPassword);
             }
@@ -87,18 +92,26 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private boolean isValidInputs(String newPassword, String confirmPassword) {
         boolean isValid = true;
-        if (!ValidationUtils.isValidPassword(newPassword)) {
-            showError(ilNewPassword, getString(R.string.label_password_error));
+
+        ValidationErrorModel passwordValidationErrorModel = ValidationUtils.getPasswordValidationErrorModel(getApplicationContext(), newPassword, confirmPassword, "userEmail");
+
+        if (!passwordValidationErrorModel.isValid()){
+            showError(ilNewPassword, passwordValidationErrorModel.getInlineError());
             isValid = false;
-        } else {
-            hideError(ilNewPassword);
         }
 
-        if (!confirmPassword.equals(newPassword)) {
-            showError(ilConfirmPassword, getString(R.string.label_password_match_error));
+        ValidationErrorModel confPasswordValidationErrorModel = ValidationUtils.getConfirmPasswordValidationErrorModel(getApplicationContext(), newPassword, confirmPassword);
+        if (!confPasswordValidationErrorModel.isValid()){
+            showError(ilConfirmPassword, confPasswordValidationErrorModel.getInlineError());
             isValid = false;
-        } else {
-            hideError(ilConfirmPassword);
+        }
+
+        if (!isValid){
+            if (!passwordValidationErrorModel.isValid()){
+                DialogUtils.showDialog(ResetPasswordActivity.this,passwordValidationErrorModel.getDialogMessage());
+            }else {
+                DialogUtils.showDialog(ResetPasswordActivity.this,confPasswordValidationErrorModel.getDialogMessage());
+            }
         }
         return isValid;
     }

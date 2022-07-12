@@ -59,17 +59,8 @@ public class MainActivity extends AppCompatActivity {
             String email = Objects.requireNonNull(inputLayoutEmail.getEditText()).getText().toString();
             String dob = Objects.requireNonNull(inputLayoutDob.getEditText()).getText().toString();
 
-            if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                hideError(inputLayoutEmail);
-            } else {
-                showError(inputLayoutEmail, getString(R.string.label_email_error));
-            }
-
-            if (dob.isEmpty() || dob.length() < 10) {
-                showError(inputLayoutDob, getString(R.string.label_dob_error));
-            } else {
-                hideError(inputLayoutDob);
-            }
+            if (!isValidInputs(email, dob))
+                return;;
         });
         btnCancel.setOnClickListener(v -> {
             /*DialogUtils.showDialog(MainActivity.this, "Hello....");
@@ -107,6 +98,37 @@ public class MainActivity extends AppCompatActivity {
     private void hideError(TextInputLayout inputLayout) {
         inputLayout.setError("");
         inputLayout.setErrorEnabled(false);
+    }
+
+    private boolean isValidInputs(String email, String dob) {
+        boolean isValid = true;
+        String validationError = "";
+        int errorCount = 0;
+        if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            hideError(inputLayoutEmail);
+        } else {
+            errorCount++;
+            validationError = getString(R.string.label_email_error);
+            showError(inputLayoutEmail, validationError);
+            isValid = false;
+        }
+
+        if (dob.isEmpty() || dob.length() < 10) {
+            errorCount++;
+            validationError = getString(R.string.label_dob_error);
+            showError(inputLayoutDob, validationError);
+            isValid = false;
+        } else {
+            hideError(inputLayoutDob);
+        }
+        if (!isValid){
+            if (errorCount <= 1){
+                DialogUtils.showDialog(MainActivity.this, validationError);
+            } else {
+                DialogUtils.showDialog(MainActivity.this, getString(R.string.label_fields_error));
+            }
+        }
+        return isValid;
     }
 
     private void initViews() {

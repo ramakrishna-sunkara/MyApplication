@@ -26,6 +26,36 @@
     <string name="label_password_match_error">Passwords need to match</string>
     <string name="label_password_error">Invalid password</string>
     <string name="label_confirm_password_helper_text">Passwords must match</string>
-    <!-- End Reset Password strings -->
+    <string name="label_fields_error">All fields error</string>
+    <string name="label_password_reset_success">Success! your password has been reset</string>
+    <string name="label_sign_in">Sign in</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_password_special_char_error">Allows only some special chars</string>
+    <string name="close">Close</string>
+
+    <string name="error_plz_enter_password">Please enter a password</string>
+    <string name="error_password_cvs_specialty">Cannot include the words CVS or Specialty</string>
+    <string name="error_password_email_included">Cannot include your email address</string>
+    <string name="error_password_special_chars"><![CDATA[Only these special characters allowed !@#$%^&*()]]></string>
+    <string name="error_password_unsatisfactory">One or more requirements weren\'t met</string>
+    <string name="error_message_empty_passwords">Enter a password and make sure you confirm your new password</string>
+    <string name="error_message_passwords_mismatch">Enter a password and make sure your passwords match</string>
+    <string name="error_make_sure_passwords_match">Make sure passwords match</string>
+    <string name="error_confirm_new_password">Confirm your new password</string>
+    <string name="error_patient_first_name">Please enter patient\'s first name</string>
+    <string name="error_patient_last_name">Please enter patient\'s last name</string>
+    <string name="error_empty_email">Please enter an email address</string>
+    <string name="error_empty_dob">Please enter patient\'s date of birth</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="error_future_dob">Date of birth cannot be future date</string>
+    <string name="error_title_unlock_user">There are %1$d errors</string>
+    <string name="error_message_unlock_user">Please review your entries and enter all required information</string>
+    <string name="error_valid_dob">Please enter patient\'s valid date of birth</string>
+    <string name="error_empty_email_and_missing_dob">Enter account holder\'s email and patient\'s date of birth</string>
+    <string name="error_empty_email_and_wrong_dob">Enter account holder\'s email and patient\'s valid date of birth</string>
+    <string name="error_empty_email_and_future_dob">Enter account holder\'s email. Patient\'s date of birth cannot be a future date</string>
+    <string name="error_invalid_email_and_missing_dob">Enter account holder\'s valid email and patient\'s date of birth</string>
+    <string name="error_invalid_email_and_wrong_dob">Enter account holder\'s valid email and patient\'s valid date of birth</string>
+    <string name="error_invalid_email_and_future_dob">Enter account holder\'s valid email. Patient\'s date of birth cannot be a future date</string>
 
 </resources>
